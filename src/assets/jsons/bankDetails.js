@@ -1,0 +1,48 @@
+export default {
+  Data: [
+    {
+      id: "1",
+      Name: "John Smith",
+      BankName: "Axis Bank",
+      Branch: "Adambakkam",
+      AccountNumber: "123 456 78920",
+      IFSCCode: "UTIB0003259",
+    },
+    {
+      id: "3",
+      Name: "John Smith",
+      BankName: "Canara Bank",
+      Branch: "Karavalur",
+      AccountNumber: "756 890 75689",
+      IFSCCode: "CNRB0001483",
+      Action: "Edit",
+    },
+    {
+      id: "4",
+      Name: "John Smith",
+      BankName: "ICICI Bank",
+      Branch: "Vadavalli",
+      AccountNumber: "756 890 36586",
+      IFSCCode: "ICIC0002142",
+      Action: "Edit",
+    },
+    {
+      id: "5",
+      Name: "John Smith",
+      BankName: "Karur Vysya Bank",
+      Branch: "Chennai",
+      AccountNumber: "756 890 88669",
+      IFSCCode: "KVBL0001153",
+      Action: "Edit",
+    },
+    {
+      id: "6",
+      Name: "John Smith",
+      BankName: "State Bank of India",
+      Branch: "Chennai",
+      AccountNumber: "756 890 36589",
+      IFSCCode: "SBIN0000800",
+      Action: "Edit\n",
+    },
+  ],
+};

@@ -1,0 +1,523 @@
+import React, { useEffect, useState } from "react";
+import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Switch } from "react-router-dom";
+import StickySidebar from "./layouts/StickySidebar";
+import Dashboard from "./main/dashboard/Index";
+import Customers from "./customers/Index";
+import AddCustomer from "./customers/add-customer";
+import EditCustomer from "./customers/edit-customer";
+import Expenses from "./finance-accounts/expenses/expenses";
+import AddExpenses from "./finance-accounts/expenses/add-expenses";
+import EditExpenses from "./finance-accounts/expenses/edit-expenses";
+import RecurringInvoice from "./sales/invoices/recurring";
+import AddPurchaseReturn from "./purchases-component/purchases/add-purchase-return";
+import Calendar from "./main/application/calendar";
+import DomainRequest from "./main/superadmin/domainrequest";
+import Packages from "./main/superadmin/packages";
+import Subscription from "./main/superadmin/subscription";
+import FontAwesome from "./ui-interface/icons/font-awesome";
+import Feather from "./ui-interface/icons/feather";
+import IconicIcon from "./ui-interface/icons/iconic";
+import MaterialIcons from "./ui-interface/icons/material";
+import Pe7 from "./ui-interface/icons/pe7";
+import Invoices from "./sales/invoices/Index";
+import Invoicedetails from "./sales/invoices/Invoice-details";
+import ViewInvoice from "./sales/invoices/view-invoice";
+import AddInvoice from "./sales/invoices/AddInvoice";
+import EditInvoice from "./sales/invoices/edit-invoice";
+import InvoicePaid from "./sales/invoices/Invoice-paid";
+import ParticallyPaid from "./sales/invoices/partically-paid";
+import InvoiceUnpaid from "./sales/invoices/Invoice-unpaid";
+import RefundedInvoice from "./sales/invoices/refunded-Invoice";
+import InvoiceOverdue from "./sales/invoices/Invoice-overdue";
+import Invoicesettings from "./sales/invoices/Invoice-settings";
+import InvoiceDraft from "./sales/invoices/Invoice-draft";
+import Invoicecancelled from "./sales/invoices/Invoice-cancelled";
+import Chat from "./main/application/chat";
+import Alert from "./ui-interface/base-ui/alerts";
+import Accordions from "./ui-interface/base-ui/accordions";
+import Avatar from "./ui-interface/base-ui/avatar";
+import Badges from "./ui-interface/base-ui/badges";
+import Buttons from "./ui-interface/base-ui/buttons";
+import Buttongroup from "./ui-interface/base-ui/button-group";
+import Breadcrumbs from "./ui-interface/base-ui/breadcrumbs";
+import Cards from "./ui-interface/base-ui/cards";
+import Carousel from "./ui-interface/base-ui/carousel";
+import Dropdowns from "./ui-interface/base-ui/dropdowns";
+import Grid from "./ui-interface/base-ui/grid";
+import Images from "./ui-interface/base-ui/images";
+import Lightbox from "./ui-interface/base-ui/lightbox";
+import Media from "./ui-interface/base-ui/media";
+import Modals from "./ui-interface/base-ui/modals";
+import Offcanvas from "./ui-interface/base-ui/offcanvas";
+import Pagination from "./ui-interface/base-ui/pagination";
+import Popover from "./ui-interface/base-ui/popover";
+import Progress from "./ui-interface/base-ui/progress";
+import Placeholder from "./ui-interface/base-ui/placeholders";
+import RangeSlides from "./ui-interface/base-ui/rangeslider";
+import Spinners from "./ui-interface/base-ui/spinners";
+import Sweetalerts from "./ui-interface/base-ui/sweeetalerts";
+import Tap from "./ui-interface/base-ui/tab";
+import Toasts from "./ui-interface/base-ui/toasts";
+import Tooltip from "./ui-interface/base-ui/tooltip";
+import Typography from "./ui-interface/base-ui/typography";
+import Videos from "./ui-interface/base-ui/videos";
+import Ribbon from "./ui-interface/elements/ribbon";
+import DragDrop from "./ui-interface/elements/drag&drop";
+import Rating from "./ui-interface/elements/rating";
+import Texteditor from "./ui-interface/elements/texteditor";
+import Counter from "./ui-interface/elements/counter";
+import Scrollbar from "./ui-interface/elements/scrollbar";
+import Stickynote from "./ui-interface/elements/stickynote";
+import Timeline from "./ui-interface/elements/timeline";
+import Horizontaltimeline from "./ui-interface/elements/horizontaltimeline";
+import Formwizard from "./ui-interface/elements/formwizard";
+import { Clipboard } from "./ui-interface/elements/clipboard";
+import InvoiceOnea from "./sales/invoices/invoice-one-a";
+import InvoiceFourA from "./sales/invoices/invoice-four-a";
+import Companies from "./main/superadmin/companies";
+
+import ContactMessage from "./support/contactMessage";
+import customersLedger from "./customers/customersLedger";
+import BankSetting from "./settings/BankSetting";
+import PaymentMethod from "./settings/PaymentMethod";
+import Error404 from "./pages/error404";
+import DeleteAccounts from "./settings/deleteAccount";
+import VectorMaps from "./pages/vectormaps/Index";
+import TypiconIcons from "./ui-interface/icons/typicon";
+import SimpleLine from "./ui-interface/icons/simpleLine";
+import Themify from "./ui-interface/icons/themify";
+import WeatherIcons from "./ui-interface/icons/weather";
+import Flags from "./ui-interface/icons/flags";
+import Apexchart from "./ui-interface/charts/apexcharts";
+import ChartJs from "./ui-interface/charts/chartjs";
+import Tickets from "./support/tickets";
+import TicketRecurring from "./support/tickets/ticketRecurring";
+import TicketCancelled from "./support/tickets/ticketCancelled";
+import TicketList from "./support/tickets/ticketlist";
+import TicketListPending from "./support/tickets/ticketlist/ticketListPending";
+import TicketListOverdue from "./support/tickets/ticketlist/ticketListOverdue";
+import TicketListDraft from "./support/tickets/ticketlist/ticketListdraft";
+import TicketListRecurring from "./support/tickets/ticketlist/ticketListRecurring";
+import TicketListCancelled from "./support/tickets/ticketlist/ticketListCancelled";
+import TicketKanban from "./support/tickets/ticketKanban";
+import TicketDetails from "./support/tickets/ticketOverview";
+import AddMembership from "./membership/addMembership";
+import EditTestimonials from "./content/testimonials/editTestimonials";
+import AddTestimonials from "./content/testimonials/addTestimonials";
+import Faq from "./content/faq";
+import Cities from "./content/location/cities";
+import States from "./content/location/states";
+import Countries from "./content/location";
+import BlogComments from "./content/blog/blog-comments";
+import AddCategories from "./content/blog/add-categories";
+import Categories from "./content/blog/categories";
+import AddBlog from "./content/blog/add-blog";
+import InactiveBlog from "./content/blog/inactive-blog";
+import AllBlogs from "./content/blog/blog";
+import Testimonials from "./content/testimonials";
+import Pages from "./pages/page";
+import AddPage from "./pages";
+import Transaction from "./membership/transaction";
+import Payments from "./finance-accounts/payments/payments";
+import AccountSettings from "./settings/AccountSettings";
+import CompanySettings from "./settings/CompanySettings";
+import InvoiceSetting from "./settings/InvoiveSetting";
+import InvoiceTemplateSettings from "./settings/InvoiceTemplateSettings";
+import Inbox from "./main/application/inbox";
+import RecurringHead from "./sales/invoices/recurring/recurringHead";
+import CreditPending from "./sales/creditNotes/creditPending";
+import CreditOverdue from "./sales/creditNotes/creditOverdue";
+import CreditDraft from "./sales/creditNotes/creditDraft";
+import CreditRecurring from "./sales/creditNotes/creditRecurring";
+import CreditCancelled from "./sales/creditNotes/creditCancelled";
+import AddCredit from "./sales/creditNotes/addCredit";
+import CreditDetails from "./sales/creditNotes/creditDetails";
+import Purchases from "./purchases-component/purchases/purchases";
+import AddPurchases from "./purchases-component/purchases/add-purchases";
+import EditPurchase from "./purchases-component/purchases/edit-purchases";
+import PurchaseDetails from "./purchases-component/purchases/purchase-details";
+import PurchaseOrders from "./purchases-component/purchases/purchase-orders";
+import DebitNotes from "./purchases-component/purchases/debit-notes";
+import Quotations from "./quotation-component/quotations";
+import AddQuotations from "./quotation-component/quotations/addQuotations";
+import EditQuotations from "./quotation-component/quotations/editQuotations";
+import DeliveryChallans from "./quotation-component/deliveryChallans";
+import EditChallans from "./quotation-component/deliveryChallans/editChallans";
+import AddChallans from "./quotation-component/deliveryChallans/addChallans";
+import PaymentSummary from "./reports-component/paymentSummary";
+import AddUser from "./user-management/manageUser";
+import Users from "./user-management/manageUser/user";
+import EditUser from "./user-management/manageUser/editUser";
+import RolesPermission from "./user-management/rolePermission";
+import Permission from "./user-management/rolePermission/permission";
+import DeleteAccount from "./user-management/deleteAccount";
+import MembershipPlan from "./membership";
+import MembershipAddons from "./membership/membershipAddons";
+import Subscribers from "./membership/subscribers";
+import BasicInputs from "./ui-interface/forms/basic-inputs";
+import FormInputGroups from "./ui-interface/forms/input-groups";
+import HorizontalForm from "./ui-interface/forms/horizontal-form";
+import VerticalForm from "./ui-interface/forms/vertical-form";
+import FormMask from "./ui-interface/forms/FormMask";
+import FormValidation from "./ui-interface/forms/FormValidation";
+import Fileupload from "./ui-interface/forms/File-upload";
+import Formselect2 from "./ui-interface/forms/form-select2";
+import BasicTables from "./ui-interface/tables/BasicTables";
+import Datatables from "./ui-interface/tables/DataTables";
+import Login from "./authentication/Login";
+import Register from "./authentication/Register";
+import ForgotPassword from "./authentication/forgot-password";
+import LockScreen from "./authentication/lock-screen";
+import AddProduct from "./inventory/products/addProduct";
+import EditProduct from "./inventory/products/editProduct";
+import ActiveCustomers from "./customers/activeCustomers";
+import DeactiveCustomers from "./customers/deactivateCustomers";
+import CustomerDetails from "./customers/customerDetails";
+import Vendors from "./customers/vendors";
+import ProductList from "./inventory/products/productList";
+import Units from "./inventory/products/units";
+import Inventory from "./inventory";
+import InvoiceList from "./sales/invoices/invoice-list";
+import InvoiceTemplate from "./sales/invoices/invoice-template";
+import InvoiceDetailsAdmin from "./sales/invoices/Invoice-details-admin";
+import Category from "./inventory/products/category";
+import Components from "./components/Index";
+import SalesReport from "./reports-component/reports/salesreport";
+// import ExpenseReport from "./reports-component/reports/expense";
+// import ProfitlossReport from "./reports-component/reports/profitloss";
+// import Taxreport from "./reports-component/reports/taxreport";
+
+import EmailSettings from "./settings/EmailSettings";
+import ExpenseCategory from "./settings/ExpenseCategory";
+import Notifications from "./settings/Notifications";
+import ChangePassword from "./settings/ChangePassword";
+import Profile from "./pages/profile/Index";
+import Page404 from "./pages/errorpages/404";
+import Page500 from "./pages/errorpages/500";
+import BlankPage from "./pages/blank-page";
+import CreditNotes from "./sales/creditNotes";
+import Domain from "./main/superadmin/domain";
+import PurchaseTransaction from "./main/superadmin/purchase-transaction";
+import AddPurchaseOrder from "./purchases-component/purchases/add-purchase-order";
+import EditPurchaseOrder from "./purchases-component/purchases/edit-purchase-order";
+import EditPurchaseReturn from "./purchases-component/purchases/edit-purchse-return";
+import SignatureList from "./signature/signature-list";
+import SignatureInvoice from "./signature/signature-invoice";
+
+import Ledger from "./customers/vendors/ledger";
+import InvoiceThree from "./sales/invoices/Invoice-three";
+import InvoiceTwo from "./sales/invoices/Invoice-two";
+import InvoiceFive from "./sales/invoices/Invoice-five";
+import PurchaseReport from "./reports-component/reports/purchaseReport";
+import PurchaseReturnReport from "./reports-component/reports/purchaseReturnReport";
+import SalesReturn from "./reports-component/reports/salesReturn";
+import QuotationReport from "./reports-component/reports/quotationReport";
+import PaymentReport from "./reports-component/reports/paymentReport";
+import StockReport from "./reports-component/reports/stockReport";
+import LowstockReport from "./reports-component/reports/lowstockReport";
+import IncomeReport from "./reports-component/reports/incomeReport";
+import TaxReport from "./reports-component/reports/taxreport";
+import ExpenseReport from "./reports-component/reports/expenseReport";
+import ProfitLossList from "./reports-component/reports/profitlossReport";
+import CashRecepitOne from "./sales/invoices/cashrecepitone";
+import CashRecepitFour from "./sales/invoices/CashRecepitFour";
+import TwoFactor from "./settings/two-factor";
+import CustomField from "./settings/custom-field";
+import PlanBilling from "./settings/plan-billing";
+import TaxRates from "./settings/tax-rates";
+import SignaturePreviewInvoice from "./signature/signature-preview-invoice";
+import TicketsOpen from "./support/tickets/ticketPending";
+import TicketsResolved from "./support/tickets/ticketOverdue";
+import TicketPending from "./support/tickets/ticketDraft";
+import CashRecepitThree from "./sales/invoices/CashRecepitThree";
+import CashRecepitTwo from "./sales/invoices/CashRecepitTwo";
+import Preferences from "./settings/Preferences";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import EditCreditnote from "./sales/creditNotes/edit-creditnote";
+import SassLogin from "./authentication/sass-login";
+import SassRegister from "./authentication/sass-register";
+import EmailTemplates from "./settings/email-templates";
+import SeoSettings from "./settings/seosettings";
+import SaasSettings from "./settings/saassettings";
+import Superdashbord from "./main/superadmin/dashboard";
+import PackagesList from "./main/superadmin/planlist";
+import InvoiceSubscription from "./main/superadmin/invoicesubscription";
+
+const AppContainer = () => {
+  // const config = "/template/react";
+  const [showStickySidebar, setShowStickySidebar] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Hide the sidebar on the "/invoices" page
+    setShowStickySidebar(
+      location.pathname !== "/invoice-one-a" &&
+        location.pathname !== "/invoice-two" &&
+        location.pathname !== "/invoice-three" &&
+        location.pathname !== "/invoice-four-a" &&
+        location.pathname !== "/invoice-five" &&
+        location.pathname !== "/cashreceipt-1" &&
+        location.pathname !== "/cashreceipt-2" &&
+        location.pathname !== "/cashreceipt-3" &&
+        location.pathname !== "/cashreceipt-4"
+    );
+  }, [location.pathname]);
+
+  return (
+    <Router basename="/react/template/">
+      {showStickySidebar && <StickySidebar />}
+      <Switch>
+        <Route path="/index" component={Dashboard} />
+        <Route path="/customers" component={Customers} />
+        <Route path="/add-customer" component={AddCustomer} />
+        <Route path="/edit-customer" component={EditCustomer} />
+        <Route path="/expenses" component={Expenses} />
+        <Route path="/add-expenses" component={AddExpenses} />
+        <Route path="/edit-expenses" component={EditExpenses} />
+        <Route path="/invoices" component={Invoices} />
+        <Route path="/invoice-details" component={Invoicedetails} />
+        <Route path="/view-invoice" component={ViewInvoice} />
+        <Route path="/add-invoice" component={AddInvoice} />
+        <Route path="/edit-invoice" component={EditInvoice} />
+        <Route path="/invoice-paid" component={InvoicePaid} />
+        <Route path="/invoice-particallypaid" component={ParticallyPaid} />
+        <Route path="/invoice-unpaid" component={InvoiceUnpaid} />
+        <Route path="/invoice-refund" component={RefundedInvoice} />
+        <Route path="/invoice-overdue" component={InvoiceOverdue} />
+        <Route path="/invoices-settings" component={Invoicesettings} />
+        <Route path="/invoice-draft" component={InvoiceDraft} />
+        <Route path="/invoice-cancelled" component={Invoicecancelled} />
+        <Route path="/payments" component={Payments} />
+        <Route path="/settings" component={AccountSettings} />
+        <Route path="/company-settings" component={CompanySettings} />
+        <Route path="/invoice-settings" component={InvoiceSetting} />
+        <Route
+          path="/invoice-templatesettings"
+          component={InvoiceTemplateSettings}
+        />
+        <Route path="/preferences" component={Preferences} />
+        <Route path="/email-settings" component={EmailSettings} />
+        <Route path="/expense-category" component={ExpenseCategory} />
+        <Route path="/notifications" component={Notifications} />
+        <Route path="/change-password" component={ChangePassword} />
+        <Route path="/chat" component={Chat} />
+        <Route path="/inbox" component={Inbox} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/error-404" component={Page404} />
+        <Route path="/error-500" component={Page500} />
+        <Route path="/blank-page" component={BlankPage} />
+
+        <Route path="/components" component={Components} />
+
+        <Route path="/basic-inputs" component={BasicInputs} />
+        <Route path="/input-groups" component={FormInputGroups} />
+        <Route path="/horizontal-form" component={HorizontalForm} />
+        <Route path="/vertical-form" component={VerticalForm} />
+        <Route path="/form-mask" component={FormMask} />
+        <Route path="/form-validation" component={FormValidation} />
+        <Route path="/File-upload" component={Fileupload} />
+        <Route path="/form-select2" component={Formselect2} />
+
+        <Route path="/basic-tables" component={BasicTables} />
+        <Route path="/data-tables" component={Datatables} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/forgot-password" component={ForgotPassword} />
+        <Route path="/lock-screen" component={LockScreen} />
+        <Route path="/add-product" component={AddProduct} />
+        <Route path="/edit-product" component={EditProduct} />
+        <Route path="/active-customers" component={ActiveCustomers} />
+        <Route path="/deactive-customers" component={DeactiveCustomers} />
+        <Route path="/customer-details" component={CustomerDetails} />
+        <Route path="/vendors" component={Vendors} />
+        <Route path="/product-list" component={ProductList} />
+        <Route path="/category" component={Category} />
+        <Route path="/units" component={Units} />
+        <Route path="/inventory" component={Inventory} />
+        <Route path="/invoice-list" component={InvoiceList} />
+        <Route path="/invoice-template" component={InvoiceTemplate} />
+        <Route path="/invoice-details-admin" component={InvoiceDetailsAdmin} />
+        <Route path="/recurring-invoices" component={RecurringInvoice} />
+        <Route path="/recurring" component={RecurringHead} />
+        <Route path="/credit-notes" component={CreditNotes} />
+        <Route path="/credit-notes-pending" component={CreditPending} />
+        <Route path="/credit-notes-overdue" component={CreditOverdue} />
+        <Route path="/credit-notes-draft" component={CreditDraft} />
+        <Route path="/credit-notes-recurring" component={CreditRecurring} />
+        <Route path="/credit-notes-cancelled" component={CreditCancelled} />
+        <Route path="/add-credit-notes" component={AddCredit} />
+        <Route path="/credit-notes-details" component={CreditDetails} />
+        <Route path="/purchases" component={Purchases} />
+        <Route path="/add-purchases" component={AddPurchases} />
+        <Route path="/edit-purchases" component={EditPurchase} />
+        <Route path="/purchases-details" component={PurchaseDetails} />
+        <Route path="/purchase-orders" component={PurchaseOrders} />
+        <Route path="/debit-notes" component={DebitNotes} />
+        <Route path="/quotations" component={Quotations} />
+        <Route path="/add-quotations" component={AddQuotations} />
+        <Route path="/edit-quotations" component={EditQuotations} />
+        <Route path="/delivery-challans" component={DeliveryChallans} />
+        <Route path="/edit-delivery-challans" component={EditChallans} />
+        <Route path="/add-delivery-challans" component={AddChallans} />
+        <Route path="/payment-summary" component={PaymentSummary} />
+        <Route path="/add-user" component={AddUser} />
+        <Route path="/users" component={Users} />
+        <Route path="/edit-users" component={EditUser} />
+        <Route path="/roles-permission" component={RolesPermission} />
+        <Route path="/permission" component={Permission} />
+        <Route path="/delete-account-request" component={DeleteAccount} />
+        <Route path="/membership-plans" component={MembershipPlan} />
+        <Route path="/membership-addons" component={MembershipAddons} />
+        <Route path="/subscribers" component={Subscribers} />
+        <Route path="/transactions" component={Transaction} />
+        <Route path="/add-page" component={AddPage} />
+        <Route path="/pages" component={Pages} />
+        <Route path="/all-blogs" component={AllBlogs} />
+        <Route path="/inactive-blog" component={InactiveBlog} />
+        <Route path="/add-blog" component={AddBlog} />
+        <Route path="/categories" component={Categories} />
+        <Route path="/add-categories" component={AddCategories} />
+        <Route path="/blog-comments" component={BlogComments} />
+        <Route path="/countries" component={Countries} />
+        <Route path="/states" component={States} />
+        <Route path="/cities" component={Cities} />
+        <Route path="/testimonials" component={Testimonials} />
+        <Route path="/add-testimonials" component={AddTestimonials} />
+        <Route path="/edit-testimonials" component={EditTestimonials} />
+        <Route path="/faq" component={Faq} />
+        <Route path="/tickets" component={Tickets} />
+        <Route path="/tickets-list-open" component={TicketsOpen} />
+        <Route path="/tickets-list-resolved" component={TicketsResolved} />
+        <Route path="/tickets-list-pending" component={TicketPending} />
+        <Route path="/tickets-list-closed" component={TicketRecurring} />
+        <Route path="/tickets-list-cancelled" component={TicketCancelled} />
+        <Route path="/tickets-list" component={TicketList} />
+        <Route path="/tickets-open" component={TicketListPending} />
+        <Route path="/tickets-resolved" component={TicketListOverdue} />
+        <Route path="/tickets-pending" component={TicketListDraft} />
+        <Route path="/tickets-closed" component={TicketListRecurring} />
+        <Route path="/tickets-cancelled" component={TicketListCancelled} />
+        <Route path="/tickets-kanban" component={TicketKanban} />
+        <Route path="/tickets-overview" component={TicketDetails} />
+        <Route path="/add-membership" component={AddMembership} />
+        <Route path="/fontawesome-icons" component={FontAwesome} />
+        <Route path="/feather-icons" component={Feather} />
+        <Route path="/ionic-icons" component={IconicIcon} />
+        <Route path="/material-icons" component={MaterialIcons} />
+        <Route path="/pe7-icons" component={Pe7} />
+        <Route path="/typicon-icons" component={TypiconIcons} />
+        <Route path="/simpleline-icons" component={SimpleLine} />
+        <Route path="/themify-icons" component={Themify} />
+        <Route path="/weather-icons" component={WeatherIcons} />
+        <Route path="/flag-icons" component={Flags} />
+        <Route path="/apex-charts" component={Apexchart} />
+        <Route path="/chart-js" component={ChartJs} />
+
+        <Route path="/alerts" component={Alert} />
+        <Route path="/accordions" component={Accordions} />
+        <Route path="/avatar" component={Avatar} />
+        <Route path="/badges" component={Badges} />
+        <Route path="/buttons" component={Buttons} />
+        <Route path="/button-group" component={Buttongroup} />
+        <Route path="/breadcrumbs" component={Breadcrumbs} />
+        <Route path="/cards" component={Cards} />
+        <Route path="/carousel" component={Carousel} />
+        <Route path="/dropdowns" component={Dropdowns} />
+        <Route path="/grid" component={Grid} />
+        <Route path="/images" component={Images} />
+        <Route path="/lightbox" component={Lightbox} />
+        <Route path="/media" component={Media} />
+        <Route path="/modals" component={Modals} />
+        <Route path="/offcanvas" component={Offcanvas} />
+        <Route path="/pagination" component={Pagination} />
+        <Route path="/popover" component={Popover} />
+        <Route path="/progress" component={Progress} />
+        <Route path="/placeholders" component={Placeholder} />
+        <Route path="/rangeslides" component={RangeSlides} />
+        <Route path="/spinners" component={Spinners} />
+        <Route path="/sweetalerts" component={Sweetalerts} />
+        <Route path="/tab" component={Tap} />
+        <Route path="/toasts" component={Toasts} />
+        <Route path="/tooltip" component={Tooltip} />
+        <Route path="/typography" component={Typography} />
+        <Route path="/video" component={Videos} />
+        <Route path="/vector-map" component={VectorMaps} />
+        <Route path="/error-404" component={Error404} />
+        <Route path="/delete-accounts" component={DeleteAccounts} />
+        <Route path="/paymentmethod" component={PaymentMethod} />
+        <Route path="/banksetting" component={BankSetting} />
+
+        <Route path="/ribbon" component={Ribbon} />
+        <Route path="/clipboard" component={Clipboard} />
+        <Route path="/drag-drop" component={DragDrop} />
+        <Route path="/rating" component={Rating} />
+        <Route path="/text-editor" component={Texteditor} />
+        <Route path="/counter" component={Counter} />
+        <Route path="/scrollbar" component={Scrollbar} />
+        <Route path="/notification" component={Notification} />
+        <Route path="/sticky-note" component={Stickynote} />
+        <Route path="/timeline" component={Timeline} />
+        <Route path="/horizontal-timeline" component={Horizontaltimeline} />
+        <Route path="/form-wizard" component={Formwizard} />
+        <Route path="/contact-messages" component={ContactMessage} />
+        <Route path="/customers-ledger" component={customersLedger} />
+        <Route path="/ledger" component={Ledger} />
+        <Route path="/invoice-one-a" component={InvoiceOnea} />
+        <Route path="/invoice-four-a" component={InvoiceFourA} />
+        <Route path="/invoice-five" component={InvoiceFive} />
+        <Route path="/invoice-three" component={InvoiceThree} />
+        <Route path="/invoice-two" component={InvoiceTwo} />
+        <Route path="/companies" component={Companies} />
+        <Route path="/subscription" component={Subscription} />
+        <Route path="/packages" component={Packages} />
+        <Route path="/domain-request" component={DomainRequest} />
+        <Route path="/domain" component={Domain} />
+        <Route path="/purchase-transaction" component={PurchaseTransaction} />
+        <Route path="/add-purchase-return" component={AddPurchaseReturn} />
+        <Route path="/calendar" component={Calendar} />
+        <Route path="/add-purchase-order" component={AddPurchaseOrder} />
+        <Route path="/edit-purchase-order" component={EditPurchaseOrder} />
+        <Route path="/edit-purchase-return" component={EditPurchaseReturn} />
+        <Route path="/signature-list" component={SignatureList} />
+        <Route path="/signature-invoice" component={SignatureInvoice} />
+        <Route path="/expense-report" component={ExpenseReport} />
+        <Route path="/purchase-report" component={PurchaseReport} />
+        <Route path="/purchase-return" component={PurchaseReturnReport} />
+        <Route path="/sales-report" component={SalesReport} />
+        <Route path="/sales-return-report" component={SalesReturn} />
+        <Route path="/quotation-report" component={QuotationReport} />
+        <Route path="/payment-report" component={PaymentReport} />
+        <Route path="/stock-report" component={StockReport} />
+        <Route path="/low-stock-report" component={LowstockReport} />
+        <Route path="/income-report" component={IncomeReport} />
+        <Route path="/tax-report" component={TaxReport} />
+        <Route path="/profit-loss-list" component={ProfitLossList} />
+        <Route path="/cashreceipt-1" component={CashRecepitOne} />
+        <Route path="/cashreceipt-2" component={CashRecepitTwo} />
+        <Route path="/cashreceipt-3" component={CashRecepitThree} />
+        <Route path="/cashreceipt-4" component={CashRecepitFour} />
+        <Route path="/two-factor" component={TwoFactor} />
+        <Route path="/custom-field" component={CustomField} />
+        <Route path="/plan-pilling" component={PlanBilling} />
+        <Route path="/tax-rates" component={TaxRates} />
+        <Route
+          path="/signature-preview-invoice"
+          component={SignaturePreviewInvoice}
+        />
+        <Route path="/edit-credit-notes" component={EditCreditnote} />
+        <Route path="/sass-login" component={SassLogin} />
+        <Route path="/sass-register" component={SassRegister} />
+        <Route path="/emailtemplates" component={EmailTemplates} />
+        <Route path="/seosettings" component={SeoSettings} />
+        <Route path="/sasssettings" component={SaasSettings} />
+        <Route path="/dashbord" component={Superdashbord} />
+        <Route path="/plans-list" component={PackagesList} />
+        <Route path="/invoice-subscription" component={InvoiceSubscription} />
+
+      </Switch>
+    </Router>
+  );
+};
+
+export default AppContainer;
