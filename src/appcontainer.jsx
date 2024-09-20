@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Route, HashRouter as Router, useLocation } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import StickySidebar from "./layouts/StickySidebar";
 import Dashboard from "./main/dashboard/Index";
@@ -233,7 +233,6 @@ import TicketPending from "./support/tickets/ticketDraft";
 import CashRecepitThree from "./sales/invoices/CashRecepitThree";
 import CashRecepitTwo from "./sales/invoices/CashRecepitTwo";
 import Preferences from "./settings/Preferences";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import EditCreditnote from "./sales/creditNotes/edit-creditnote";
 import SassLogin from "./authentication/sass-login";
 import SassRegister from "./authentication/sass-register";

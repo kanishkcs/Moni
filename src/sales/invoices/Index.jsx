@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
-import { Media } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
@@ -20,6 +19,7 @@ import {
 import Header from "../../layouts/Header";
 import Sidebar from "../../layouts/Sidebar";
 import FeatherIcon from "feather-icons-react";
+import Media from "../../ui-interface/base-ui/media";
 
 const Invoices = () => {
   const [show, setShow] = useState(false);
