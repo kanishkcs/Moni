@@ -1,4 +1,5 @@
-/* eslint-disable */ 
+/* eslint-disable */
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Modalbox from "../../_components/modalbox/modalbox";
@@ -28,30 +29,30 @@ const Calendar = () => {
     [event_title, setevent_title] = useState(""),
     category_color = "",
     [calenderevent, setcalenderevent] = useState(""),
-    weekendsVisible = true,
-    defaultEvents = [
-      {
-        title: "Event Name 4",
-        start: Date.now() + 148000000,
-        className: "bg-purple",
-      },
-      {
-        title: "Test Event 1",
-        start: Date.now(),
-        end: Date.now(),
-        className: "bg-success",
-      },
-      {
-        title: "Test Event 2",
-        start: Date.now() + 168000000,
-        className: "bg-info",
-      },
-      {
-        title: "Test Event 3",
-        start: Date.now() + 338000000,
-        className: "bg-primary",
-      },
-    ];
+    weekendsVisible = true;
+  var defaultEvents = [
+    {
+      title: "Event Name 4",
+      start: Date.now() + 148000000,
+      className: "bg-purple",
+    },
+    {
+      title: "Test Event 1",
+      start: Date.now(),
+      end: Date.now(),
+      className: "bg-success",
+    },
+    {
+      title: "Test Event 2",
+      start: Date.now() + 168000000,
+      className: "bg-info",
+    },
+    {
+      title: "Test Event 3",
+      start: Date.now() + 338000000,
+      className: "bg-primary",
+    },
+  ];
   useEffect(() => {
     let elements = Array.from(
       document.getElementsByClassName("react-datepicker-wrapper")
@@ -242,11 +243,11 @@ const Calendar = () => {
                       <h4 className="mb-0">Add Event</h4>
                     </div>
                     <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                   </div>
                   <div className="modal-body">
                     <form action="#">

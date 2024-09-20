@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../layouts/Header";
 import Sidebar from "../layouts/Sidebar";
-import Data from "../assets/jsons/signature-list";
+import { Data } from "../assets/jsons/signature-list";
 import { editsign, usersign, usersignwhite } from "../_components/Imagepath";
 import { Link } from "react-router-dom";
 import {
