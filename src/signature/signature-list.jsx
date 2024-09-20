@@ -139,10 +139,10 @@ const SignatureList = () => {
               <div className=" card-table">
                 <div className="card-body">
                   <div className="table-responsive">
-                    <Table 
+                    <Table
                       className="table"
                       pagination={{
-                        total: datasource.length,
+                        total: datasource?.length,
                         showTotal: (total, range) =>
                           `Showing ${range[0]} to ${range[1]} of ${total} entries`,
                         // showSizeChanger: true,

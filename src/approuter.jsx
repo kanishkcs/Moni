@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 const AppRouter = () => {
   // const config = "/template/react";
   return (
-    <Router basename="/react/template/">
+    <Router>
       <Route render={(props) => <AppContainer {...props} />} />
     </Router>
   );

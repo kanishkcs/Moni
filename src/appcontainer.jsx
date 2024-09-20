@@ -265,7 +265,7 @@ const AppContainer = () => {
   }, [location.pathname]);
 
   return (
-    <Router basename="/react/template/">
+    <Router>
       {showStickySidebar && <StickySidebar />}
       <Switch>
         <Route path="/index" component={Dashboard} />
@@ -514,7 +514,6 @@ const AppContainer = () => {
         <Route path="/dashbord" component={Superdashbord} />
         <Route path="/plans-list" component={PackagesList} />
         <Route path="/invoice-subscription" component={InvoiceSubscription} />
-
       </Switch>
     </Router>
   );
