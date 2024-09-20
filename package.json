@@ -1,7 +1,6 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "/react/template/login",
   "private": true,
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^40.2.0",
